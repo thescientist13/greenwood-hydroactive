@@ -1,0 +1,36 @@
+{
+  "name": "greenwood-hydroactive",
+  "version": "1.0.0",
+  "description": "A demonstration repo for using Greenwood with HydroActive, hosted on Vercel.",
+  "homepage": "https://github.com/thescientist13/greenwood-hydroactive#readme",
+  "author": "Owen Buckley <owen@thegreenhouse.io>",
+  "license": "ISC",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thescientist13/greenwood-hydroactive.git"
+  },
+  "keywords": [
+    "Greenwood",
+    "Web Components",
+    "HTML",
+    "HydroActive",
+    "Vercel",
+    "Serverless",
+    "SSR"
+  ],
+  "scripts": {
+    "clean": "rimraf .greenwood public .vercel",
+    "dev": "greenwood develop",
+    "build": "greenwood build",
+    "serve": "npm run clean && npm run build && greenwood serve",
+    "start": "npm run serve"
+  },
+  "dependencies": {
+    "hydroactive": "^0.0.4"
+  },
+  "devDependencies": {
+    "@greenwood/cli": "~0.29.0",
+    "rimraf": "^5.0.1"
+  }
+}

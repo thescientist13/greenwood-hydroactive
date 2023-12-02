@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og:http://ogp.me/ns#">
+
+  <head>
+    <title>Greenwood + HydroActive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    
+    <style>
+      :root, :host {
+        --color-white: white;
+        --color-accent: #3c384d;
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        border: 0;
+        font-family: 'Source Sans Pro', serif;
+        line-height: 1.4;
+        background: #fbfbfb;
+      }
+
+      header, footer {
+        color: var(--color-white);
+        background-color: rgb(25, 42, 39);
+        text-align: center;
+        min-height: 60px;
+        padding: 1px 0;
+        vertical-align: middle;
+      }
+
+      footer a {
+        margin: 7px 0 0 0;
+        text-decoration: underline;
+        color: var(--color-white);
+      }
+
+      header a {
+        color: var(--color-white);
+      }
+
+      a {
+        color: var(--color-accent);
+      }
+
+      p {
+        margin: 20px auto;
+        width: 50%;
+      }
+
+      main {
+        text-align: center;
+        min-height: 100vh;
+      }
+
+      h2 {
+        text-align: center;
+        text-decoration: underline;
+      }
+    </style>
+    
+    <script type="module">
+      import { component } from 'hydroactive';
+
+      const MyCounter = component('my-counter', ($) => {
+        const [ count, setCount ] = $.live('span', Number);
+        const incrementBtn = $.query('button#inc');
+        const decrementBtn = $.query('button#dec');
+
+        $.listen(incrementBtn, 'click', () => {
+          setCount(count() + 1);
+        });
+
+        $.listen(decrementBtn, 'click', () => {
+          setCount(count() - 1);
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Greenwood + HydroActive</h1>
+    </header>
+
+    <main>
+      <h2>Demo</h2>
+      <p>This is a
+        <a href="https://github.com/thescientist13/greenwood-hydroactive" title="Link to demonstration repo">Greenwood demonstration repo</a>
+        showcasing an integration with <a href="https://www.npmjs.com/package/hydroactive" alt="Link to HydroActive">HydroActive</a>.
+      </p>
+
+      <my-counter>
+        <template shadowroot="open">
+          <div>The current count is <span>5</span>.</div>
+          <button id="dec">Decrement</button>
+          <button id="inc">Increment</button>
+        </template>
+      </my-counter>
+    </main>
+
+    <footer>
+      <a href="https://www.greenwoodjs.io/">Greenwood</a>
+    </footer>
+
+  </body>
+
+</html>
